@@ -1,38 +1,38 @@
 import {
   UniverDocsMentionUIPlugin
-} from "../chunk-BSNF7LSG.js";
+} from "../chunk-KCCOK6P7.js";
 import {
   SetActiveCommentOperation,
   ThreadCommentPanel,
   ThreadCommentPanelService,
   UniverThreadCommentUIPlugin
-} from "../chunk-53NMMY3Y.js";
-import "../chunk-POCESYUK.js";
+} from "../chunk-HL673RFD.js";
+import "../chunk-A4KFX5WS.js";
 import {
   UniverDebuggerPlugin
-} from "../chunk-2RCF7I2V.js";
+} from "../chunk-PPUNR3BN.js";
 import {
   InsertDocImageCommand,
   UniverDocsDrawingUIPlugin
-} from "../chunk-MJUUILBL.js";
+} from "../chunk-RNOBK53O.js";
 import {
   AddCommentMutation,
   IThreadCommentDataSourceService,
   ThreadCommentModel,
   getDT
-} from "../chunk-OI5KGQIG.js";
-import "../chunk-Q2HZ6DDG.js";
+} from "../chunk-WFNK2WW3.js";
+import "../chunk-Y65XFGY6.js";
 import {
   UniverDocsDrawingPlugin,
   UniverDrawingUIPlugin
-} from "../chunk-4YKIVOXU.js";
+} from "../chunk-42YUNXYN.js";
 import {
   FUniver
-} from "../chunk-DQJ4ICFF.js";
-import "../chunk-3BVI6WHV.js";
+} from "../chunk-BN223HPL.js";
+import "../chunk-NXLBRPSM.js";
 import {
   DEFAULT_DOCUMENT_DATA_SIMPLE
-} from "../chunk-ZDLDEJRU.js";
+} from "../chunk-OUPAFTZU.js";
 import {
   BulletListCommand,
   CutContentCommand,
@@ -48,8 +48,10 @@ import {
   DocSelectionManagerService,
   DocSelectionRenderService,
   DocSkeletonManagerService,
+  EMPTY_PARAGRAPH_MENU_ID,
   HorizontalLineCommand,
   IMEInputCommand,
+  INSERT_BELLOW_MENU_ID,
   InsertCommand,
   MoveCursorOperation,
   NodePositionConvertToCursor,
@@ -66,7 +68,7 @@ import {
   getAnchorBounding,
   replaceSelectionFactory,
   whenDocAndEditorFocused
-} from "../chunk-YSE4D6PG.js";
+} from "../chunk-EGU5CICW.js";
 import "../chunk-LI6UXASZ.js";
 import {
   Button,
@@ -98,20 +100,20 @@ import {
   useDependency,
   useEvent,
   useObservable
-} from "../chunk-I2OYHXFH.js";
+} from "../chunk-YI67N2NN.js";
 import {
   zh_CN_default
-} from "../chunk-ITRQ2GGR.js";
-import "../chunk-JTSNRN7X.js";
+} from "../chunk-XDJIWBQR.js";
+import "../chunk-OXQW5F2S.js";
 import {
   UniverFormulaEnginePlugin
-} from "../chunk-Y45V7LNH.js";
+} from "../chunk-GMC4FNZY.js";
 import {
   IRenderManagerService,
   UniverRenderEnginePlugin,
   ptToPixel,
   withCurrentTypeOfRenderer
-} from "../chunk-XJLBVLLP.js";
+} from "../chunk-6BJ26NAD.js";
 import {
   BehaviorSubject,
   BuildTextUtils,
@@ -147,7 +149,7 @@ import {
   sequenceExecute,
   tap,
   toDisposable
-} from "../chunk-FYOWE623.js";
+} from "../chunk-4JSWIADO.js";
 import "../chunk-EQ2B2W73.js";
 import {
   __decorateClass,
@@ -159,10 +161,10 @@ import {
 // ../packages/docs-hyper-link/package.json
 var package_default = {
   name: "@univerjs/docs-hyper-link",
-  version: "0.21.1",
+  version: "0.24.0",
   private: false,
-  description: "Univer thread comment plugin",
-  author: "DreamNum <developer@univer.ai>",
+  description: "Hyperlink model and commands for Univer Docs.",
+  author: "DreamNum Co., Ltd. <developer@univer.ai>",
   license: "Apache-2.0",
   funding: {
     type: "opencollective",
@@ -176,7 +178,13 @@ var package_default = {
   bugs: {
     url: "https://github.com/dream-num/univer/issues"
   },
-  keywords: [],
+  keywords: [
+    "univer",
+    "docs",
+    "hyperlink",
+    "link",
+    "plugin"
+  ],
   exports: {
     ".": "./src/index.ts",
     "./*": "./src/*"
@@ -221,8 +229,8 @@ var package_default = {
   },
   devDependencies: {
     "@univerjs-infra/shared": "workspace:*",
-    typescript: "^6.0.2",
-    vitest: "^4.1.4"
+    typescript: "^6.0.3",
+    vitest: "^4.1.5"
   }
 };
 
@@ -375,10 +383,10 @@ UniverDocsHyperLinkPlugin = __decorateClass([
 // ../packages/docs-hyper-link-ui/package.json
 var package_default2 = {
   name: "@univerjs/docs-hyper-link-ui",
-  version: "0.21.1",
+  version: "0.24.0",
   private: false,
-  description: "Univer thread comment plugin",
-  author: "DreamNum <developer@univer.ai>",
+  description: "Hyperlink editing UI for Univer Docs.",
+  author: "DreamNum Co., Ltd. <developer@univer.ai>",
   license: "Apache-2.0",
   funding: {
     type: "opencollective",
@@ -392,7 +400,13 @@ var package_default2 = {
   bugs: {
     url: "https://github.com/dream-num/univer/issues"
   },
-  keywords: [],
+  keywords: [
+    "univer",
+    "docs",
+    "hyperlink",
+    "link",
+    "ui"
+  ],
   exports: {
     ".": "./src/index.ts",
     "./*": "./src/*",
@@ -449,17 +463,17 @@ var package_default2 = {
     "@univerjs/docs-hyper-link": "workspace:*",
     "@univerjs/docs-ui": "workspace:*",
     "@univerjs/engine-render": "workspace:*",
-    "@univerjs/icons": "^1.1.1",
+    "@univerjs/icons": "1.4.0",
     "@univerjs/ui": "workspace:*"
   },
   devDependencies: {
     "@univerjs-infra/shared": "workspace:*",
-    postcss: "^8.5.10",
+    postcss: "^8.5.14",
     react: "18.3.1",
     rxjs: "^7.8.2",
     tailwindcss: "3.4.18",
-    typescript: "^6.0.2",
-    vitest: "^4.1.4"
+    typescript: "^6.0.3",
+    vitest: "^4.1.5"
   }
 };
 
@@ -582,7 +596,7 @@ var DocHyperLinkEdit = () => {
   const [label, setLabel] = (0, import_react.useState)("");
   const [showError, setShowError] = (0, import_react.useState)(false);
   const isLegal = Tools.isLegalUrl(link);
-  const doc = editing ? univerInstanceService.getUnit(editing.unitId, 1 /* UNIVER_DOC */) : univerInstanceService.getCurrentUnitForType(1 /* UNIVER_DOC */);
+  const doc = editing ? univerInstanceService.getUnit(editing.unitId, 1 /* UNIVER_DOC */) : univerInstanceService.getCurrentUnitOfType(1 /* UNIVER_DOC */);
   (0, import_react.useEffect)(() => {
     var _a, _b, _c, _d, _e, _f, _g, _h, _i;
     const activeRange = docSelectionManagerService.getActiveTextRange();
@@ -645,8 +659,8 @@ var DocHyperLinkEdit = () => {
           editing ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
             FormLayout,
             {
-              label: localeService.t("docLink.edit.label"),
-              error: showError && isBlankInput(label) ? localeService.t("docLink.edit.labelError") : "",
+              label: localeService.t("docs-hyper-link-ui.edit.label"),
+              error: showError && isBlankInput(label) ? localeService.t("docs-hyper-link-ui.edit.labelError") : "",
               children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
                 Input,
                 {
@@ -665,8 +679,8 @@ var DocHyperLinkEdit = () => {
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
             FormLayout,
             {
-              label: localeService.t("docLink.edit.address"),
-              error: showError && !isLegal ? localeService.t("docLink.edit.addressError") : "",
+              label: localeService.t("docs-hyper-link-ui.edit.address"),
+              error: showError && !isLegal ? localeService.t("docs-hyper-link-ui.edit.addressError") : "",
               children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
                 Input,
                 {
@@ -684,14 +698,14 @@ var DocHyperLinkEdit = () => {
           )
         ] }),
         /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "univer-flex univer-justify-end univer-gap-3", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button, { onClick: handleCancel, children: localeService.t("docLink.edit.cancel") }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button, { onClick: handleCancel, children: localeService.t("docs-hyper-link-ui.edit.cancel") }),
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
             Button,
             {
               variant: "primary",
               disabled: isBlankInput(link),
               onClick: handleConfirm,
-              children: localeService.t("docLink.edit.confirm")
+              children: localeService.t("docs-hyper-link-ui.edit.confirm")
             }
           )
         ] })
@@ -728,7 +742,7 @@ var shouldDisableAddLink = (accessor) => {
     return true;
   }
   const activeRange = textRanges[0];
-  const doc = univerInstanceService.getCurrentUnitForType(1 /* UNIVER_DOC */);
+  const doc = univerInstanceService.getCurrentUnitOfType(1 /* UNIVER_DOC */);
   if (!doc || !activeRange || activeRange.collapsed) {
     return true;
   }
@@ -745,7 +759,7 @@ var ShowDocHyperLinkEditPopupOperation = {
       return false;
     }
     const hyperLinkService = accessor.get(DocHyperLinkPopupService);
-    const unitId = (linkInfo == null ? void 0 : linkInfo.unitId) || ((_a = univerInstanceService.getCurrentUnitForType(1 /* UNIVER_DOC */)) == null ? void 0 : _a.getUnitId());
+    const unitId = (linkInfo == null ? void 0 : linkInfo.unitId) || ((_a = univerInstanceService.getCurrentUnitOfType(1 /* UNIVER_DOC */)) == null ? void 0 : _a.getUnitId());
     if (!unitId) {
       return false;
     }
@@ -840,11 +854,11 @@ var DocLinkPopup = () => {
               onClick: () => {
                 navigator.clipboard.writeText(url);
                 messageService.show({
-                  content: localeService.t("docLink.info.coped"),
+                  content: localeService.t("docs-hyper-link-ui.info.coped"),
                   type: "info" /* Info */
                 });
               },
-              children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(Tooltip, { placement: "bottom", title: localeService.t("docLink.info.copy"), children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(CopyIcon, {}) })
+              children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(Tooltip, { placement: "bottom", title: localeService.t("docs-hyper-link-ui.info.copy"), children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(CopyIcon, {}) })
             }
           ),
           /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
@@ -856,7 +870,7 @@ var DocLinkPopup = () => {
                   link: currentPopup
                 });
               },
-              children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(Tooltip, { placement: "bottom", title: localeService.t("docLink.info.edit"), children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(WriteIcon, {}) })
+              children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(Tooltip, { placement: "bottom", title: localeService.t("docs-hyper-link-ui.info.edit"), children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(WriteIcon, {}) })
             }
           ),
           /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
@@ -870,7 +884,7 @@ var DocLinkPopup = () => {
                   segmentId
                 });
               },
-              children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(Tooltip, { placement: "bottom", title: localeService.t("docLink.info.cancel"), children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(UnlinkIcon, {}) })
+              children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(Tooltip, { placement: "bottom", title: localeService.t("docs-hyper-link-ui.info.cancel"), children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(UnlinkIcon, {}) })
             }
           )
         ] })
@@ -1066,11 +1080,11 @@ var DocHyperLinkEventRenderController = class extends Disposable {
   _initHover() {
     this.disposeWithMe(
       this._docEventManagerService.hoverCustomRanges$.subscribe((ranges) => {
-        var _a;
+        var _a, _b;
         const link = ranges.find((range) => range.range.rangeType === 0 /* HYPERLINK */);
         const activeRanges = this._docSelectionManagerService.getTextRanges();
-        const currentSegmentId = activeRanges == null ? void 0 : activeRanges[0].segmentId;
-        if (((_a = link == null ? void 0 : link.segmentId) != null ? _a : "") !== currentSegmentId) {
+        const currentSegmentId = (_a = activeRanges == null ? void 0 : activeRanges[0]) == null ? void 0 : _a.segmentId;
+        if (((_b = link == null ? void 0 : link.segmentId) != null ? _b : "") !== currentSegmentId) {
           this._hideInfoPopup();
           return;
         }
@@ -1183,8 +1197,8 @@ function AddHyperLinkMenuItemFactory(accessor) {
     id: ShowDocHyperLinkEditPopupOperation.id,
     type: 0 /* BUTTON */,
     icon: DOC_LINK_ICON,
-    title: "docLink.menu.tooltip",
-    tooltip: "docLink.menu.tooltip",
+    title: "docs-hyper-link-ui.menu.tooltip",
+    tooltip: "docs-hyper-link-ui.menu.tooltip",
     hidden$: getMenuHiddenObservable(accessor, 1 /* UNIVER_DOC */),
     disabled$: new Observable(function(subscribe) {
       const textSelectionService = accessor.get(DocSelectionManagerService);
@@ -1200,7 +1214,7 @@ function AddHyperLinkMenuItemFactory(accessor) {
 var addLinkShortcut = {
   id: ShowDocHyperLinkEditPopupOperation.id,
   binding: 4096 /* CTRL_COMMAND */ | 75 /* K */,
-  description: "docLink.menu.tooltip",
+  description: "docs-hyper-link-ui.menu.tooltip",
   preconditions: whenDocAndEditorFocused
 };
 
@@ -1217,6 +1231,24 @@ var menuSchema = {
       [ShowDocHyperLinkEditPopupOperation.id]: {
         order: 0,
         menuItemFactory: AddHyperLinkMenuItemFactory
+      }
+    }
+  },
+  ["contextMenu.paragraph" /* PARAGRAPH */]: {
+    ["contextMenu.layout" /* LAYOUT */]: {
+      [INSERT_BELLOW_MENU_ID]: {
+        [ShowDocHyperLinkEditPopupOperation.id]: {
+          order: 6,
+          menuItemFactory: AddHyperLinkMenuItemFactory
+        }
+      }
+    },
+    [EMPTY_PARAGRAPH_MENU_ID]: {
+      ["contextMenu.layout" /* LAYOUT */]: {
+        [ShowDocHyperLinkEditPopupOperation.id]: {
+          order: 6,
+          menuItemFactory: AddHyperLinkMenuItemFactory
+        }
       }
     }
   }
@@ -1376,7 +1408,7 @@ function measureTextWidth(text, font) {
 var KeywordInputPlaceholder = ({ popup }) => {
   var _a, _b, _c, _d, _e, _f, _g, _h, _i, _j, _k;
   const localeService = useDependency(LocaleService);
-  const placeholder = localeService.t("docQuickInsert.keywordInputPlaceholder");
+  const placeholder = localeService.t("docs-quick-insert-ui.keywordInputPlaceholder");
   const fontSize = (_b = (_a = popup.extraProps) == null ? void 0 : _a.fontSize) != null ? _b : DEFAULT_FONT_SIZE;
   const fontSizePx = ptToPixel(fontSize);
   const fontString = (_d = (_c = popup.extraProps) == null ? void 0 : _c.fontString) != null ? _d : `${fontSizePx}px sans-serif`;
@@ -1536,7 +1568,7 @@ var QuickInsertPlaceholder = () => {
     "div",
     {
       className: `univer-flex univer-h-full univer-items-center univer-justify-center univer-rounded-lg univer-bg-white univer-px-12 univer-py-6 univer-text-gray-400 univer-shadow-lg`,
-      children: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("span", { children: localeService.t("docQuickInsert.placeholder") })
+      children: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("span", { children: localeService.t("docs-quick-insert-ui.placeholder") })
     }
   );
 };
@@ -1978,43 +2010,43 @@ var CloseQuickInsertPopupOperation = {
 // ../packages/docs-quick-insert-ui/src/menu/menu.ts
 var textMenu = {
   id: "quick-insert.text.menu",
-  title: "docQuickInsert.menu.text",
+  title: "docs-quick-insert-ui.menu.text",
   icon: "TextIcon",
   keywords: ["text"]
 };
 var numberedListMenu = {
   id: OrderListCommand.id,
-  title: "docQuickInsert.menu.numberedList",
+  title: "docs-quick-insert-ui.menu.numberedList",
   icon: "OrderIcon",
   keywords: ["numbered", "list", "ordered"]
 };
 var bulletedListMenu = {
   id: BulletListCommand.id,
-  title: "docQuickInsert.menu.bulletedList",
+  title: "docs-quick-insert-ui.menu.bulletedList",
   icon: "UnorderIcon",
   keywords: ["bulleted", "list", "unordered"]
 };
 var dividerMenu = {
   id: HorizontalLineCommand.id,
-  title: "docQuickInsert.menu.divider",
+  title: "docs-quick-insert-ui.menu.divider",
   icon: "DividerIcon",
   keywords: ["divider", "line", "separate"]
 };
 var tableMenu = {
   id: DocCreateTableOperation.id,
-  title: "docQuickInsert.menu.table",
+  title: "docs-quick-insert-ui.menu.table",
   icon: "GridIcon",
   keywords: ["table", "grid", "spreadsheet"]
 };
 var imageMenu = {
   id: InsertDocImageCommand.id,
-  title: "docQuickInsert.menu.image",
+  title: "docs-quick-insert-ui.menu.image",
   icon: "AdditionAndSubtractionIcon",
   keywords: ["image", "picture", "photo"]
 };
 var builtInMenus = [
   {
-    title: "docQuickInsert.group.basics",
+    title: "docs-quick-insert-ui.group.basics",
     id: "quick.insert.group.basic" /* Basic */,
     children: [
       textMenu,
@@ -2333,10 +2365,10 @@ DocQuickInsertUIController = __decorateClass([
 // ../packages/docs-quick-insert-ui/package.json
 var package_default3 = {
   name: "@univerjs/docs-quick-insert-ui",
-  version: "0.21.1",
+  version: "0.24.0",
   private: false,
-  description: "",
-  author: "DreamNum <developer@univer.ai>",
+  description: "Quick insert UI integration for Univer Docs.",
+  author: "DreamNum Co., Ltd. <developer@univer.ai>",
   license: "Apache-2.0",
   funding: {
     type: "opencollective",
@@ -2350,7 +2382,13 @@ var package_default3 = {
   bugs: {
     url: "https://github.com/dream-num/univer/issues"
   },
-  keywords: [],
+  keywords: [
+    "univer",
+    "docs",
+    "quick-insert",
+    "insert",
+    "ui"
+  ],
   exports: {
     ".": "./src/index.ts",
     "./*": "./src/*",
@@ -2410,17 +2448,17 @@ var package_default3 = {
     "@univerjs/drawing": "workspace:*",
     "@univerjs/drawing-ui": "workspace:*",
     "@univerjs/engine-render": "workspace:*",
-    "@univerjs/icons": "^1.1.1",
+    "@univerjs/icons": "1.4.0",
     "@univerjs/ui": "workspace:*"
   },
   devDependencies: {
     "@univerjs-infra/shared": "workspace:*",
-    postcss: "^8.5.10",
+    postcss: "^8.5.14",
     react: "18.3.1",
     rxjs: "^7.8.2",
     tailwindcss: "3.4.18",
-    typescript: "^6.0.2",
-    vitest: "^4.1.4"
+    typescript: "^6.0.3",
+    vitest: "^4.1.5"
   }
 };
 
@@ -2583,7 +2621,7 @@ var ShowCommentPanelOperation = {
     const sidebarService = accessor.get(ISidebarService);
     if (!panelService.panelVisible || ((_a = sidebarService.options.children) == null ? void 0 : _a.label) !== DOCS_THREAD_COMMENT_PANEL) {
       sidebarService.open({
-        header: { title: "threadCommentUI.panel.title" },
+        header: { title: "docs-thread-comment-ui.panel.title" },
         children: { label: DOCS_THREAD_COMMENT_PANEL },
         width: 320,
         onClose: () => panelService.setPanelVisible(false)
@@ -2605,7 +2643,7 @@ var ToggleCommentPanelOperation = {
     const sidebarService = accessor.get(ISidebarService);
     if (!panelService.panelVisible || ((_a = sidebarService.options.children) == null ? void 0 : _a.label) !== DOCS_THREAD_COMMENT_PANEL) {
       sidebarService.open({
-        header: { title: "threadCommentUI.panel.title" },
+        header: { title: "docs-thread-comment-ui.panel.title" },
         children: { label: DOCS_THREAD_COMMENT_PANEL },
         width: 320,
         onClose: () => panelService.setPanelVisible(false)
@@ -2626,7 +2664,7 @@ var StartAddCommentOperation = {
     var _a, _b, _c;
     const panelService = accessor.get(ThreadCommentPanelService);
     const univerInstanceService = accessor.get(IUniverInstanceService);
-    const doc = univerInstanceService.getCurrentUnitForType(1 /* UNIVER_DOC */);
+    const doc = univerInstanceService.getCurrentUnitOfType(1 /* UNIVER_DOC */);
     const docSelectionManagerService = accessor.get(DocSelectionManagerService);
     const renderManagerService = accessor.get(IRenderManagerService);
     const userManagerService2 = accessor.get(UserManagerService);
@@ -2683,10 +2721,10 @@ var StartAddCommentOperation = {
 // ../packages/docs-thread-comment-ui/package.json
 var package_default4 = {
   name: "@univerjs/docs-thread-comment-ui",
-  version: "0.21.1",
+  version: "0.24.0",
   private: false,
-  description: "Univer thread comment plugin",
-  author: "DreamNum <developer@univer.ai>",
+  description: "Thread comment UI integration for Univer Docs.",
+  author: "DreamNum Co., Ltd. <developer@univer.ai>",
   license: "Apache-2.0",
   funding: {
     type: "opencollective",
@@ -2700,10 +2738,17 @@ var package_default4 = {
   bugs: {
     url: "https://github.com/dream-num/univer/issues"
   },
-  keywords: [],
+  keywords: [
+    "univer",
+    "docs",
+    "comment",
+    "thread-comment",
+    "ui"
+  ],
   exports: {
     ".": "./src/index.ts",
-    "./*": "./src/*"
+    "./*": "./src/*",
+    "./locale/*": "./src/locale/*.ts"
   },
   main: "./src/index.ts",
   types: "./lib/types/index.d.ts",
@@ -2721,6 +2766,11 @@ var package_default4 = {
         import: "./lib/es/*",
         require: "./lib/cjs/*",
         types: "./lib/types/index.d.ts"
+      },
+      "./locale/*": {
+        import: "./lib/es/locale/*.js",
+        require: "./lib/cjs/locale/*.js",
+        types: "./lib/types/locale/*.d.ts"
       },
       "./lib/*": "./lib/*"
     }
@@ -2749,19 +2799,19 @@ var package_default4 = {
     "@univerjs/docs": "workspace:*",
     "@univerjs/docs-ui": "workspace:*",
     "@univerjs/engine-render": "workspace:*",
-    "@univerjs/icons": "^1.1.1",
+    "@univerjs/icons": "1.4.0",
     "@univerjs/thread-comment": "workspace:*",
     "@univerjs/thread-comment-ui": "workspace:*",
     "@univerjs/ui": "workspace:*"
   },
   devDependencies: {
     "@univerjs-infra/shared": "workspace:*",
-    postcss: "^8.5.10",
+    postcss: "^8.5.14",
     react: "18.3.1",
     rxjs: "^7.8.2",
     tailwindcss: "3.4.18",
-    typescript: "^6.0.2",
-    vitest: "^4.1.4"
+    typescript: "^6.0.3",
+    vitest: "^4.1.5"
   }
 };
 
@@ -2886,8 +2936,8 @@ function AddDocCommentMenuItemFactory(accessor) {
     id: StartAddCommentOperation.id,
     type: 0 /* BUTTON */,
     icon: "CommentIcon",
-    title: "threadCommentUI.panel.addComment",
-    tooltip: "threadCommentUI.panel.addComment",
+    title: "docs-thread-comment-ui.panel.addComment",
+    tooltip: "docs-thread-comment-ui.panel.addComment",
     hidden$: getMenuHiddenObservable(accessor, 1 /* UNIVER_DOC */, void 0, SHEET_EDITOR_UNITS),
     disabled$: new Observable(function(subscribe) {
       const textSelectionService = accessor.get(DocSelectionManagerService);
@@ -2905,8 +2955,8 @@ function ToolbarDocCommentMenuItemFactory(accessor) {
     id: ToggleCommentPanelOperation.id,
     type: 0 /* BUTTON */,
     icon: "CommentIcon",
-    title: "threadCommentUI.panel.addComment",
-    tooltip: "threadCommentUI.panel.addComment",
+    title: "docs-thread-comment-ui.panel.addComment",
+    tooltip: "docs-thread-comment-ui.panel.addComment",
     hidden$: getMenuHiddenObservable(accessor, 1 /* UNIVER_DOC */)
   };
 }
@@ -3083,7 +3133,7 @@ var DocThreadCommentRenderController = class extends Disposable {
         this._docRenderController.reRender(activeComment.unitId);
         return;
       }
-      const unitId = (_a = this._univerInstanceService.getCurrentUnitForType(1 /* UNIVER_DOC */)) == null ? void 0 : _a.getUnitId();
+      const unitId = (_a = this._univerInstanceService.getCurrentUnitOfType(1 /* UNIVER_DOC */)) == null ? void 0 : _a.getUnitId();
       if (unitId) {
         this._docRenderController.reRender(unitId);
       }
